@@ -91,12 +91,21 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
+
+-- Global state for format-on-save behavior
+vim.g.format_on_save = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
+
+-- Set indent to 4 spaces
+vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.tabstop = 4 -- A tab is four spaces
+vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
+vim.opt.softtabstop = 4 -- Number of spaces that a <Tab> counts for while editing
 
 -- Make line numbers default
 vim.opt.number = true
@@ -694,10 +703,22 @@ require('lazy').setup({
         mode = '',
         desc = '[F]ormat buffer',
       },
+      {
+        '<leader>tf',
+        function()
+          vim.g.format_on_save = not vim.g.format_on_save
+          print('Format on save: ' .. tostring(vim.g.format_on_save))
+        end,
+        mode = '',
+        desc = 'Toggle format on save',
+      },
     },
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
+        if not vim.g.format_on_save then
+          return
+        end
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
