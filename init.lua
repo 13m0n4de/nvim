@@ -1,4 +1,4 @@
---[[
+--[[vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
@@ -189,6 +189,12 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Map 'jk' to escape from insert mode and visual mode
+vim.keymap.set({ 'i', 'v' }, 'jk', '<ESC>', { desc = 'Exit insert mode with jk' })
+
+-- Quick save with Ctrl-s
+vim.keymap.set('n', '<C-s>', '<cmd>w<cr>', { desc = 'Save file' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
