@@ -107,6 +107,9 @@ vim.opt.tabstop = 4 -- A tab is four spaces
 vim.opt.shiftwidth = 4 -- Number of spaces to use for each step of (auto)indent
 vim.opt.softtabstop = 4 -- Number of spaces that a <Tab> counts for while editing
 
+-- Disable line wrapping
+vim.opt.wrap = false
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
