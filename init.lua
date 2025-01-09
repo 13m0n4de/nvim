@@ -114,7 +114,7 @@ vim.opt.wrap = false
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -696,6 +696,10 @@ require('lazy').setup({
           end,
         },
       }
+
+      require('lspconfig').gdscript.setup {
+        capabilities = capabilities,
+      }
     end,
   },
 
@@ -745,6 +749,9 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        markdown = { 'mdformat' },
+        yaml = { 'yamlfmt' },
+        gdscript = { 'gdformat' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
