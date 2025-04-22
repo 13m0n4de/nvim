@@ -643,6 +643,11 @@ require('lazy').setup({
         bashls = {}, -- bash
         tailwindcss = {}, -- tailwindcss
         marksman = {}, -- markdown
+        tinymist = { -- typst
+          settings = {
+            formatterMode = 'typstyle',
+          },
+        },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -700,6 +705,8 @@ require('lazy').setup({
       require('lspconfig').gdscript.setup {
         capabilities = capabilities,
       }
+
+      require('lspconfig').racket_langserver.setup {}
     end,
   },
 
