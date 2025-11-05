@@ -813,11 +813,18 @@ require('lazy').setup({
           }
         end
       end,
+      formatters = {
+        racofmt = {
+          command = 'raco',
+          args = { 'fmt' },
+        },
+      },
       formatters_by_ft = {
         lua = { 'stylua' },
         markdown = { 'mdformat' },
         yaml = { 'yamlfmt' },
         gdscript = { 'gdformat' },
+        racket = { 'racofmt' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
