@@ -1,0 +1,3 @@
+return {
+  'kolliemo/vim-djot',
+}
